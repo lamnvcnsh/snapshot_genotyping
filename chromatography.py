@@ -137,7 +137,7 @@ if __name__ == '__main__':
     # sample = sys.argv[1]
     # file = sys.argv[2]
     bin_file = sys.argv[1]
-    main(bin_file)
+    main(bin_file, sys.argv[2])
 
 
 

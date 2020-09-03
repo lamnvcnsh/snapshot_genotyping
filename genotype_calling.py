@@ -211,15 +211,24 @@ def genotype_calling(bin_sample, tables):
     
     return genotype_df
 
-def main(bin_text_file, definition_pickle = 'resource/tables.pdata'):
+def main(bin_text_file, definition_pickle = 'resource/tables.pdata', excel =False):
+    import os
+    result = 'genotype_calling_result'
+    if not (os.path.exists(result) and os.path.isdir(result)):
+        os.mkdir(result)
+
     tables = pickle.load(open(definition_pickle, 'rb'))
     bin_sample = merge_bin_and_definition(bin_text_file, tables)
     genotype_df = genotype_calling(bin_sample, tables)
+
+    if excel:
+        base = os.path.basename(bin_text_file)
+        outfile = os.path.splitext(base)[0]
+        genotype_df.to_excel(f'{result}/{outfile}_result.xlsx', index=False)
+
     return genotype_df
-    
+
 
 if __name__ == '__main__':
     import sys
-    df = main(sys.argv[1])
-
-    print(df)
+    df = main(bin_text_file=sys.argv[1], excel=True)
