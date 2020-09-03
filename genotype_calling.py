@@ -213,7 +213,7 @@ def genotype_calling(bin_sample, tables):
 
 def main(bin_text_file, definition_pickle = 'resource/tables.pdata', excel =False):
     import os
-    result = 'genotype_calling_result'
+    result = 'result/genotype_calling'
     if not (os.path.exists(result) and os.path.isdir(result)):
         os.mkdir(result)
 
