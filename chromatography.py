@@ -53,6 +53,7 @@ def load_snapshot_file(snapshot_file):
              'Size 1', 'Size 2', 'Height 1', 'Height 2']]
     df['x'] = np.where(np.isnan(df['Size 2']), df['Size 1'], 
                                 (df['Size 1'] + df['Size 2'])/2)
+
     df['y'] = df[['Height 1', 'Height 2']].apply(np.nanmax, axis=1)
     df['text'] = df['Marker'] + ':' + df['Genotype']
     return df
@@ -66,7 +67,7 @@ def plot_chromatogram(file, bin_data, c_limit=[20,100], iscustom=False):
     # load fsa file
     filename, record = load_fsa_file(file)
     # build model from record
-    model, d_limit = build_linear_model(record)
+    # model, d_limit = build_linear_model(record)
     
     channels = ['DATA9', 'DATA10', 'DATA11', 'DATA12']
     colors = ['blue', 'green', 'black', 'red']
@@ -79,24 +80,28 @@ def plot_chromatogram(file, bin_data, c_limit=[20,100], iscustom=False):
     
     #predict size
     fontsize = 15
-    total_points = record.annotations['abif_raw']['Scan1']
-    data_points = np.arange(0,total_points).reshape(-1,1)
-    data_points = np.sqrt(data_points)
-    data = pd.DataFrame(np.array([data_points]).reshape(1,-1)).T
-    data.columns = ['points']
-    data['points2'] = data['points']**2
-    data['points3'] = data['points']**3
-    size_pred = model.predict(data)
+    # total_points = record.annotations['abif_raw']['Scan1']
+    # data_points = np.arange(0,total_points).reshape(-1,1)
+    # data_points = np.sqrt(data_points)
+    # data = pd.DataFrame(np.array([data_points]).reshape(1,-1)).T
+    # data.columns = ['points']
+    # data['points2'] = data['points']**2
+    # data['points3'] = data['points']**3
+    # size_pred = model.predict(data)
+    size_pred = record.annotations['abif_raw']['SMap2']
 
     # get size and height
     annotation = bin_data[bin_data['Sample File'] == filename]
+    # print(annotation)
     # print(annotation)
     
     # check custom range
     if iscustom:
         limit = c_limit.copy()
     else:
-        limit = d_limit.copy()
+        limit = [0,120]
+
+    x_range = np.arange(limit[0], limit[1]+1, 5)
     
     plt.figure(figsize=(20,5), dpi=150)
     for data, color, label in zip(channels, colors, labels):
@@ -106,7 +111,7 @@ def plot_chromatogram(file, bin_data, c_limit=[20,100], iscustom=False):
     # plt.tick_params(labeltop='on')
 #     plt.xticks(np.arange(27,73,9), size=fontsize)
     plt.yticks(size=fontsize)
-    plt.xticks(size=fontsize)
+    plt.xticks(x_range, size=fontsize)
     plt.grid(linestyle='--', alpha=0.5, color = 'gray')
 
     for x,y,s in zip(annotation['x'], annotation['y'], annotation['text']):

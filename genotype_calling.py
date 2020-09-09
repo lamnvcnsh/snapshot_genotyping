@@ -213,7 +213,7 @@ def genotype_calling(bin_sample, tables):
 
 def main(bin_text_file, definition_pickle = 'resource/tables.pdata', excel =False):
     import os
-    result = 'result/genotype_calling'
+    result = 'results/genotype_calling'
     if not (os.path.exists(result) and os.path.isdir(result)):
         os.mkdir(result)
 
@@ -221,10 +221,14 @@ def main(bin_text_file, definition_pickle = 'resource/tables.pdata', excel =Fals
     bin_sample = merge_bin_and_definition(bin_text_file, tables)
     genotype_df = genotype_calling(bin_sample, tables)
 
+    print(genotype_df)
+
     if excel:
         base = os.path.basename(bin_text_file)
         outfile = os.path.splitext(base)[0]
         genotype_df.to_excel(f'{result}/{outfile}_result.xlsx', index=False)
+
+
 
     return genotype_df
 
