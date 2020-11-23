@@ -17,7 +17,7 @@ def load_snapshot_file(snapshot_file):
     return df
 
 
-def is_valid_sample_name(sample_name, p='_S[0-9]+$'):
+def is_valid_sample_name(sample_name, p='_S[0-9]+'):
     pattern = re.compile(p)
     if pattern.search(sample_name):
         return True
@@ -25,10 +25,10 @@ def is_valid_sample_name(sample_name, p='_S[0-9]+$'):
         return False
 
 
-def extract_sample_name(sample_name, p='_S[0-9]+$'):
+def extract_sample_name(sample_name, p='_S[0-9]+'):
     pattern = re.compile(p)
     if pattern.search(sample_name):
-        return (pattern.sub('', sample_name))
+        return pattern.split(sample_name)[0]
     else:
         print(f'{sample_name} is not valid! Keep as origin')
         return sample_name
@@ -243,5 +243,6 @@ def main(bin_text_file, definition_pickle='resource/tables.pdata', excel=False):
 
 if __name__ == '__main__':
     import sys
-
-    df = main(bin_text_file=sys.argv[1], excel=True)
+    input = 'raw_data/bin_text/PGx-NP_10SAMPLES_BIN_20201123.txt'
+    df = main(bin_text_file=input, excel=True)
+    # df = main(bin_text_file=sys.argv[1], excel=True)
