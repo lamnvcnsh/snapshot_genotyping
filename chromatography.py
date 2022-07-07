@@ -9,33 +9,34 @@ def load_fsa_file(file):
     import os
     filename = os.path.basename(file)
     record = SeqIO.read(file, 'abi')
-    
-    return(filename, record)
+
+    return (filename, record)
 
 
 def build_linear_model(record):
     from sklearn.linear_model import LinearRegression
     import numpy as np
     import pandas as pd
-    
+
     peaks_as_base = record.annotations['abif_raw']['Peak12']
-    matched_peaks = [True if x == '1' else False for x in 
+    matched_peaks = [True if x == '1' else False for x in
                      record.annotations['abif_raw']['Peak20'].decode().split(",")]
     matched_points = [x for x in record.annotations['abif_raw']['Peak2']]
     sizes = np.array(peaks_as_base)[matched_peaks].reshape(-1, 1)
     points = np.array(matched_points)[matched_peaks].reshape(-1, 1)
-    df = pd.DataFrame(np.array([np.sqrt(points), sizes]).reshape(2,-1)).T
+    df = pd.DataFrame(np.array([np.sqrt(points), sizes]).reshape(2, -1)).T
     df.columns = ['points', 'sizes']
-    df['points2'] = df['points']**2
-    df['points3'] = df['points']**3
+    df['points2'] = df['points'] ** 2
+    df['points3'] = df['points'] ** 3
 
     # print(df)
-    
+
     # build linear model 
     # model = LinearRegression().fit(df[['points', 'points2']], df['sizes'])
     model = LinearRegression().fit(df[['points', 'points2', 'points3']], df['sizes'])
-#     print(model.score(points, sizes))
+    #     print(model.score(points, sizes))
     return model, np.array([np.min(sizes), np.max(sizes)])
+
 
 def load_snapshot_file(snapshot_file):
     import pandas as pd
@@ -45,21 +46,25 @@ def load_snapshot_file(snapshot_file):
     df['Allele 2'] = np.where(df['Allele 2'] == "", df['Allele 1'], df['Allele 2'])
     df['Genotype'] = df['Allele 1'] + df['Allele 2']
     df['Gene'] = [x[0] for x in df['Marker'].str.split("_")]
-#     df['Customer'] = [x[-1].strip() for x in df['Sample Name'].str.split("-")]
+    #     df['Customer'] = [x[-1].strip() for x in df['Sample Name'].str.split("-")]
     df['Customer'] = [x[:-3] for x in df['Sample Name']]
-    
-    df = df[['Sample File', 'Sample Name', 'Customer', 'Panel', 
-             'Gene', 'Marker', 'Genotype', 'Allele 1', 'Allele 2', 
+
+    df = df[['Sample File', 'Sample Name', 'Customer', 'Panel',
+             'Gene', 'Marker', 'Genotype', 'Allele 1', 'Allele 2',
              'Size 1', 'Size 2', 'Height 1', 'Height 2']]
-    df['x'] = np.where(np.isnan(df['Size 2']), df['Size 1'], 
-                                (df['Size 1'] + df['Size 2'])/2)
+    df['x'] = np.where(np.isnan(df['Size 2']), df['Size 1'],
+                       (df['Size 1'] + df['Size 2']) / 2)
 
     df['y'] = df[['Height 1', 'Height 2']].apply(np.nanmax, axis=1)
     df['text'] = df['Marker'] + ':' + df['Genotype']
     return df
 
 
+<<<<<<< HEAD
 def plot_chromatogram(file, bin_data, plot_folder=None, c_limit=[20, 100], iscustom=False, ref=False):
+=======
+def plot_chromatogram(file, bin_data, c_limit=[20, 100], iscustom=False):
+>>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3
     from collections import defaultdict
     import matplotlib.pyplot as plt
     import numpy as np
@@ -92,6 +97,10 @@ def plot_chromatogram(file, bin_data, plot_folder=None, c_limit=[20, 100], iscus
     # get size and height
     annotation = bin_data[bin_data['Sample File'] == filename]
     # print(annotation)
+<<<<<<< HEAD
+=======
+    # print(annotation)
+>>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3
 
     # check custom range
     if iscustom:
@@ -99,6 +108,7 @@ def plot_chromatogram(file, bin_data, plot_folder=None, c_limit=[20, 100], iscus
     else:
         limit = [0, 120]
 
+<<<<<<< HEAD
     # plot chromagraphy
     fig, ax = plt.subplots()
     ax.set_xlim(limit)
@@ -121,11 +131,35 @@ def plot_chromatogram(file, bin_data, plot_folder=None, c_limit=[20, 100], iscus
     fig.savefig(f'{plot_folder}/{plot_file}', dpi=150)
 
     return plot_file
+=======
+    x_range = np.arange(limit[0], limit[1] + 1, 5)
+
+    plt.figure(figsize=(20, 5), dpi=150)
+    for data, color, label in zip(channels, colors, labels):
+        plt.plot(size_pred, trace[data], label=label, color=color)
+        plt.legend(prop={'size': fontsize}, loc='upper right', ncol=4)
+    plt.xlim(limit)
+    # plt.tick_params(labeltop='on')
+    #     plt.xticks(np.arange(27,73,9), size=fontsize)
+    plt.yticks(size=fontsize)
+    plt.xticks(x_range, size=fontsize)
+    plt.grid(linestyle='--', alpha=0.5, color='gray')
+
+    for x, y, s in zip(annotation['x'], annotation['y'], annotation['text']):
+        # x = annotation['x'][i]
+        # y = annotation['y'][i]
+        # s = annotation['text'][i]
+        # print(x,y,s)
+        plt.text(x, y + 10, s, ha='center', size=8, bbox=dict(fc='white', alpha=0.5))
+    plt.title(f'{filename}\n',
+              size=fontsize, fontdict={'fontweight': 'bold'})
+    plt.savefig(f'{filename}.png')
+>>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3
 
 
-def main(file, fsa_folder = 'fsas'):
+def main(file, fsa_folder='fsas'):
     import os
-    bin_data =  load_snapshot_file(file)
+    bin_data = load_snapshot_file(file)
     fsa_files = bin_data['Sample File'].unique()
     for fsa in fsa_files:
         full_fsa = f'{fsa_folder}/{fsa}'
@@ -135,8 +169,10 @@ def main(file, fsa_folder = 'fsas'):
         else:
             print(f'{full_fsa} not existed!')
 
+
 if __name__ == '__main__':
     import sys
+<<<<<<< HEAD
     # bin_file = sys.argv[1]
     # out_folder = sys.argv[2]
     bin_file = '/Volumes/GoogleDrive/My Drive/PhD/Works/SPMED/Genotyping/SNAPshot/fsa/CYP2C19_BIN SET/CYP2C19_BIN SET.txt'
@@ -146,3 +182,10 @@ if __name__ == '__main__':
 
 
 
+=======
+
+    # sample = sys.argv[1]
+    # file = sys.argv[2]
+    bin_file = sys.argv[1]
+    main(bin_file, sys.argv[2])
+>>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3

@@ -1,5 +1,9 @@
 import pandas as pd
 import numpy as np
+<<<<<<< HEAD
+=======
+# import re
+>>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3
 import itertools
 import pickle
 
@@ -95,7 +99,10 @@ def generate_genotype_by_marker(data, gene):
     combines = get_combinations(data.index)
     final_df = pd.DataFrame()
     for i in combines.index:
+<<<<<<< HEAD
         # genotype_id = combines.iloc[i][0]
+=======
+>>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3
         genotype = combines.iloc[i][1]
 
         tmp_df = get_variant_combines(data, genotype)
@@ -159,7 +166,12 @@ def main(excel_file, output='tables.pdata'):
 
 if __name__ == '__main__':
     import sys
+<<<<<<< HEAD
     x = 'definition_table/definition_tables_20210106.xlsx'
     # main(sys.argv[1])
     main(x)
 
+=======
+
+    main(sys.argv[1])
+>>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3

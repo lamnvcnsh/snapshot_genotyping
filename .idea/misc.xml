@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.7 (genotyping_snapshot)" project-jdk-type="Python SDK" />
+=======
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.7 (snapshot_genotyping)" project-jdk-type="Python SDK" />
+>>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3
 </project>
