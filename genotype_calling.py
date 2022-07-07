@@ -136,8 +136,9 @@ def is_valid_gene_data(gene_data, tables, gene):
 
 def non_star_gene_list():
     # return genes are not required to call star alleles
-    gene_list = ['ABCB1', 'ANKK1', 'COMT', 'DRD2', 'DRD3', 'EPHX1',
+    gene_list = ['ABCB1', 'ANKK1', 'COMT', 'DRD3', 'EPHX1',
                  'FKBP5', 'HTR1A', 'HTR2A', 'HTR2C', 'MC4R', 'OPRM1', 'SCN1A']
+    # remove DRD2
     return gene_list
 
 
@@ -192,6 +193,7 @@ def genotype_star_allele(sample_data, gene_data, tables, sample, gene):
 
     return df
 
+
 def genotype_calling(bin_sample, tables):
     samples = bin_sample['ExtractedSample'].unique().tolist()
     genotype_df = pd.DataFrame()
@@ -243,5 +245,7 @@ def main(bin_text_file, definition_pickle='resource/tables.pdata', excel=False):
 
 if __name__ == '__main__':
     import sys
-
-    df = main(bin_text_file=sys.argv[1], excel=True)
+    input = 'raw_data/bin_text/2021-01-07.txt'
+    df = main(input, excel=True)
+    # df = main(bin_text_file=sys.argv[1], excel=True)
+    # print(df)

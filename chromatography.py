@@ -59,70 +59,68 @@ def load_snapshot_file(snapshot_file):
     return df
 
 
-def plot_chromatogram(file, bin_data, c_limit=[20,100], iscustom=False):
+def plot_chromatogram(file, bin_data, plot_folder=None, c_limit=[20, 100], iscustom=False, ref=False):
     from collections import defaultdict
     import matplotlib.pyplot as plt
     import numpy as np
-    import pandas as pd
     # load fsa file
     filename, record = load_fsa_file(file)
     # build model from record
     # model, d_limit = build_linear_model(record)
-    
+
     channels = ['DATA9', 'DATA10', 'DATA11', 'DATA12']
     colors = ['blue', 'green', 'black', 'red']
     labels = ['G', 'A', 'C', 'T']
-    
+
     trace = defaultdict(list)
 
     for chanel in channels:
         trace[chanel] = record.annotations['abif_raw'][chanel]
-    
-    #predict size
+
+    # predict size
     fontsize = 15
     # total_points = record.annotations['abif_raw']['Scan1']
-    # data_points = np.arange(0,total_points).reshape(-1,1)
+    # data_points = np.arange(0, total_points).reshape(-1, 1)
     # data_points = np.sqrt(data_points)
-    # data = pd.DataFrame(np.array([data_points]).reshape(1,-1)).T
+    # data = pd.DataFrame(np.array([data_points]).reshape(1, -1)).T
     # data.columns = ['points']
-    # data['points2'] = data['points']**2
-    # data['points3'] = data['points']**3
+    # data['points2'] = data['points'] ** 2
+    # data['points3'] = data['points'] ** 3
     # size_pred = model.predict(data)
     size_pred = record.annotations['abif_raw']['SMap2']
 
     # get size and height
     annotation = bin_data[bin_data['Sample File'] == filename]
     # print(annotation)
-    # print(annotation)
-    
+
     # check custom range
     if iscustom:
         limit = c_limit.copy()
     else:
-        limit = [0,120]
+        limit = [0, 120]
 
-    x_range = np.arange(limit[0], limit[1]+1, 5)
-    
-    plt.figure(figsize=(20,5), dpi=150)
+    # plot chromagraphy
+    fig, ax = plt.subplots()
+    ax.set_xlim(limit)
+    ax.grid(linestyle='--', alpha=0.5, color='gray')
     for data, color, label in zip(channels, colors, labels):
-        plt.plot(size_pred, trace[data], label=label, color = color)
-        plt.legend(prop={'size': fontsize}, loc='upper right', ncol=4)
-    plt.xlim(limit)
-    # plt.tick_params(labeltop='on')
-#     plt.xticks(np.arange(27,73,9), size=fontsize)
-    plt.yticks(size=fontsize)
-    plt.xticks(x_range, size=fontsize)
-    plt.grid(linestyle='--', alpha=0.5, color = 'gray')
+        ax.plot(size_pred, trace[data], color=color, label=label)
+    for x, y, s in zip(annotation['x'], annotation['y'], annotation['Marker']):
+        ax.text(x, y + 10, s, ha='center', size=8, bbox=dict(fc='white', alpha=0.5))
 
-    for x,y,s in zip(annotation['x'], annotation['y'], annotation['text']):
-        # x = annotation['x'][i]
-        # y = annotation['y'][i]
-        # s = annotation['text'][i]
-        # print(x,y,s)
-        plt.text(x,y+10,s, ha='center', size=8, bbox=dict(fc='white', alpha=0.5))
-    plt.title(f'{filename}\n', 
-              size = fontsize, fontdict={'fontweight': 'bold'})
-    plt.savefig(f'{filename}.png')
+    if ref:
+        ref_channel = record.annotations['abif_raw']['DATA105']
+        ax.plot(size_pred, ref_channel, color='orange', alpha=0.3, label='RefSize')
+
+    ax.set_title(f'{filename}\n', size=fontsize, fontdict={'fontweight': 'bold'})
+
+    plot_file = f'{filename}.png'
+    ax.legend(prop={'size': fontsize}, loc='upper right', ncol=5)
+    ax.margins(x=0, y=0)
+    fig.set_size_inches([16, 4])
+    fig.savefig(f'{plot_folder}/{plot_file}', dpi=150)
+
+    return plot_file
 
 
 def main(file, fsa_folder = 'fsas'):
@@ -133,16 +131,17 @@ def main(file, fsa_folder = 'fsas'):
         full_fsa = f'{fsa_folder}/{fsa}'
 
         if os.path.exists(full_fsa):
-            plot_chromatogram(full_fsa, bin_data, iscustom=True)
+            plot_chromatogram(full_fsa, bin_data, iscustom=True, ref=True, plot_folder='results/chromatogram_plot')
         else:
             print(f'{full_fsa} not existed!')
 
 if __name__ == '__main__':
     import sys
-    # sample = sys.argv[1]
-    # file = sys.argv[2]
-    bin_file = sys.argv[1]
-    main(bin_file, sys.argv[2])
+    # bin_file = sys.argv[1]
+    # out_folder = sys.argv[2]
+    bin_file = '/Volumes/GoogleDrive/My Drive/PhD/Works/SPMED/Genotyping/SNAPshot/fsa/CYP2C19_BIN SET/CYP2C19_BIN SET.txt'
+    out_folder = '/Volumes/GoogleDrive/My Drive/PhD/Works/SPMED/Genotyping/SNAPshot/fsa/CYP2C19_BIN SET/CYP2C19_fsa_file/'
+    main(bin_file, out_folder)
 
 
 

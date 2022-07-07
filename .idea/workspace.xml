@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="764becaf-7001-46d3-b54b-52c5962a8dd2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/definition_table/definition_tables_20210106.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/snapshot_genotyping.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/snapshot_genotyping.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chromatography.py" beforeDir="false" afterPath="$PROJECT_DIR$/chromatography.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate_definition_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/generate_definition_tables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genotype_calling.py" beforeDir="false" afterPath="$PROJECT_DIR$/genotype_calling.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/bin_text/2020-08-bin-test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/bin_text/2020-08-bin-test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/20200617-630034_S1_B02_02_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/20200617-630034_S1_B02_02_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/20200617-630034_S2_D07_04_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/20200617-630034_S2_D07_04_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/20200617-630034_S4_B07_02_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/20200617-630034_S4_B07_02_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/20200617-630034_S5_D08_04_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/20200617-630034_S5_D08_04_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM011_HLA_AB_G12_07_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM011_HLA_AB_G12_07_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM011_S1_A01_01_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM011_S1_A01_01_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM011_S2_C06_03_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM011_S2_C06_03_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM011_S4_A06_01_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM011_S4_A06_01_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM011_S5_C07_03_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM011_S5_C07_03_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM012_S1_B01_02_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM012_S1_B01_02_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM012_S2_D02_04_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM012_S2_D02_04_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM012_S4_B06_02_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM012_S4_B06_02_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM012_S5_D07_04_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM012_S5_D07_04_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM015_S1_C01_03_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM015_S1_C01_03_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM015_S2_E02_05_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM015_S2_E02_05_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM015_S4_C06_03_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM015_S4_C06_03_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM015_S5_E07_05_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM015_S5_E07_05_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM023_S1_D01_04_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM023_S1_D01_04_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM023_S2_F02_06_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM023_S2_F02_06_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM023_S4_D06_04_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM023_S4_D06_04_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM023_S5_F07_06_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM023_S5_F07_06_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM024_S1_E01_05_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM024_S1_E01_05_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM024_S2_G02_07_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM024_S2_G02_07_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM024_S4_E06_05_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM024_S4_E06_05_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM024_S5_G07_07_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM024_S5_G07_07_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM054_S1_F01_06_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM054_S1_F01_06_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM054_S2_H02_08_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM054_S2_H02_08_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM054_S4_F06_06_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM054_S4_F06_06_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM054_S5_H07_08_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM054_S5_H07_08_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM066_S1_G05_07_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM066_S1_G05_07_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM066_S2_A03_01_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM066_S2_A03_01_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM066_S5_E09_05_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM066_S5_E09_05_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM121_S1_H05_08_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM121_S1_H05_08_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM121_S2_B03_02_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM121_S2_B03_02_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM121_S4_H06_08_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM121_S4_H06_08_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM121_S5_B08_02_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM121_S5_B08_02_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM127_S1_A06_01_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM127_S1_A06_01_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM127_S2_C07_03_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM127_S2_C07_03_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM127_S4_A07_01_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM127_S4_A07_01_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/IM127_S5_C08_03_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/IM127_S5_C08_03_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S3_20200617-630034_D12_04_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S3_20200617-630034_D12_04_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S3_IM012_D11_04_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S3_IM012_D11_04_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S3_IM015_E11_05_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S3_IM015_E11_05_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S3_IM023_F11_06_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S3_IM023_F11_06_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S3_IM024_G11_07_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S3_IM024_G11_07_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S3_IM054_H11_08_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S3_IM054_H11_08_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S3_IM066_A12_01_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S3_IM066_A12_01_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S3_IM121_B12_02_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S3_IM121_B12_02_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S3_IM127_C12_03_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S3_IM127_C12_03_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S4_IM066_F10_06_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S4_IM066_F10_06_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S6_20200617-630034_B12_02_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S6_20200617-630034_B12_02_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S6_IM011_A11_01_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S6_IM011_A11_01_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S6_IM012_B11_02_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S6_IM012_B11_02_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S6_IM015_C11_03_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S6_IM015_C11_03_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S6_IM023_D11_04_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S6_IM023_D11_04_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S6_IM024_E11_05_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S6_IM024_E11_05_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S6_IM054_F11_06_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S6_IM054_F11_06_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S6_IM066_G11_07_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S6_IM066_G11_07_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S6_IM121_H11_08_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S6_IM121_H11_08_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_data/fsa/S6_IM127_A12_01_SNaPshot50_POP7_E5.fsa" beforeDir="false" afterPath="$PROJECT_DIR$/raw_data/fsa/S6_IM127_A12_01_SNaPshot50_POP7_E5.fsa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource/tables.pdata" beforeDir="false" afterPath="$PROJECT_DIR$/resource/tables.pdata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/20200617-630034_S1_B02_02_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/20200617-630034_S1_B02_02_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/20200617-630034_S2_D07_04_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/20200617-630034_S2_D07_04_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/20200617-630034_S4_B07_02_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/20200617-630034_S4_B07_02_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/20200617-630034_S5_D08_04_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/20200617-630034_S5_D08_04_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/IM011_HLA_AB_G12_07_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/IM011_HLA_AB_G12_07_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/IM011_S1_A01_01_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/IM011_S1_A01_01_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/IM011_S2_C06_03_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/IM011_S2_C06_03_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/IM011_S4_A06_01_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/IM011_S4_A06_01_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/IM011_S5_C07_03_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/IM011_S5_C07_03_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/IM012_S1_B01_02_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/IM012_S1_B01_02_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/IM012_S2_D02_04_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/IM012_S2_D02_04_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/IM012_S4_B06_02_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/IM012_S4_B06_02_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/IM012_S5_D07_04_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/IM012_S5_D07_04_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/S3_20200617-630034_D12_04_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/S3_20200617-630034_D12_04_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/S3_IM012_D11_04_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/S3_IM012_D11_04_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/S6_20200617-630034_B12_02_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/S6_20200617-630034_B12_02_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/chromatogram_plot/S6_IM011_A11_01_SNaPshot50_POP7_E5.fsa.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/chromatogram_plot/S6_IM011_A11_01_SNaPshot50_POP7_E5.fsa.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1kb60sqK4yotbAMQJihgMBDj6Md" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/anaconda3/envs/genotyping_snapshot/python.exe" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.Test">
+    <configuration name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="snapshot_genotyping" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="generate_definition_tables" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="snapshot_genotyping" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/generate_definition_tables.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="genotype_calling" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="snapshot_genotyping" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/genotype_calling.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Test" />
+        <item itemvalue="Python.generate_definition_tables" />
+        <item itemvalue="Python.genotype_calling" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/generate_definition_tables.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
