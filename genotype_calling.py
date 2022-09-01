@@ -245,13 +245,13 @@ def main(bin_text_file, definition_pickle='resource/tables.pdata', excel=False):
 
 if __name__ == '__main__':
     import sys
-<<<<<<< HEAD
+
     input = 'raw_data/bin_text/2021-01-07.txt'
     df = main(input, excel=True)
     # df = main(bin_text_file=sys.argv[1], excel=True)
     # print(df)
-=======
+
     input = 'raw_data/bin_text/PGx-NP_10SAMPLES_BIN_20201123.txt'
     df = main(bin_text_file=input, excel=True)
     # df = main(bin_text_file=sys.argv[1], excel=True)
->>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3
+

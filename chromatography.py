@@ -60,11 +60,11 @@ def load_snapshot_file(snapshot_file):
     return df
 
 
-<<<<<<< HEAD
-def plot_chromatogram(file, bin_data, plot_folder=None, c_limit=[20, 100], iscustom=False, ref=False):
-=======
+# <<<<<<< HEAD
+# def plot_chromatogram(file, bin_data, plot_folder=None, c_limit=[20, 100], iscustom=False, ref=False):
+# =======
 def plot_chromatogram(file, bin_data, c_limit=[20, 100], iscustom=False):
->>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3
+# >>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3
     from collections import defaultdict
     import matplotlib.pyplot as plt
     import numpy as np
@@ -97,18 +97,12 @@ def plot_chromatogram(file, bin_data, c_limit=[20, 100], iscustom=False):
     # get size and height
     annotation = bin_data[bin_data['Sample File'] == filename]
     # print(annotation)
-<<<<<<< HEAD
-=======
-    # print(annotation)
->>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3
-
     # check custom range
     if iscustom:
         limit = c_limit.copy()
     else:
         limit = [0, 120]
 
-<<<<<<< HEAD
     # plot chromagraphy
     fig, ax = plt.subplots()
     ax.set_xlim(limit)
@@ -131,30 +125,29 @@ def plot_chromatogram(file, bin_data, c_limit=[20, 100], iscustom=False):
     fig.savefig(f'{plot_folder}/{plot_file}', dpi=150)
 
     return plot_file
-=======
-    x_range = np.arange(limit[0], limit[1] + 1, 5)
 
-    plt.figure(figsize=(20, 5), dpi=150)
-    for data, color, label in zip(channels, colors, labels):
-        plt.plot(size_pred, trace[data], label=label, color=color)
-        plt.legend(prop={'size': fontsize}, loc='upper right', ncol=4)
-    plt.xlim(limit)
-    # plt.tick_params(labeltop='on')
-    #     plt.xticks(np.arange(27,73,9), size=fontsize)
-    plt.yticks(size=fontsize)
-    plt.xticks(x_range, size=fontsize)
-    plt.grid(linestyle='--', alpha=0.5, color='gray')
+    # x_range = np.arange(limit[0], limit[1] + 1, 5)
 
-    for x, y, s in zip(annotation['x'], annotation['y'], annotation['text']):
-        # x = annotation['x'][i]
-        # y = annotation['y'][i]
-        # s = annotation['text'][i]
-        # print(x,y,s)
-        plt.text(x, y + 10, s, ha='center', size=8, bbox=dict(fc='white', alpha=0.5))
-    plt.title(f'{filename}\n',
-              size=fontsize, fontdict={'fontweight': 'bold'})
-    plt.savefig(f'{filename}.png')
->>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3
+    # plt.figure(figsize=(20, 5), dpi=150)
+    # for data, color, label in zip(channels, colors, labels):
+    #     plt.plot(size_pred, trace[data], label=label, color=color)
+    #     plt.legend(prop={'size': fontsize}, loc='upper right', ncol=4)
+    # plt.xlim(limit)
+    # # plt.tick_params(labeltop='on')
+    # #     plt.xticks(np.arange(27,73,9), size=fontsize)
+    # plt.yticks(size=fontsize)
+    # plt.xticks(x_range, size=fontsize)
+    # plt.grid(linestyle='--', alpha=0.5, color='gray')
+
+    # for x, y, s in zip(annotation['x'], annotation['y'], annotation['text']):
+    #     # x = annotation['x'][i]
+    #     # y = annotation['y'][i]
+    #     # s = annotation['text'][i]
+    #     # print(x,y,s)
+    #     plt.text(x, y + 10, s, ha='center', size=8, bbox=dict(fc='white', alpha=0.5))
+    # plt.title(f'{filename}\n',
+    #           size=fontsize, fontdict={'fontweight': 'bold'})
+    # plt.savefig(f'{filename}.png')
 
 
 def main(file, fsa_folder='fsas'):
@@ -172,7 +165,7 @@ def main(file, fsa_folder='fsas'):
 
 if __name__ == '__main__':
     import sys
-<<<<<<< HEAD
+
     # bin_file = sys.argv[1]
     # out_folder = sys.argv[2]
     bin_file = '/Volumes/GoogleDrive/My Drive/PhD/Works/SPMED/Genotyping/SNAPshot/fsa/CYP2C19_BIN SET/CYP2C19_BIN SET.txt'
@@ -182,10 +175,9 @@ if __name__ == '__main__':
 
 
 
-=======
 
     # sample = sys.argv[1]
     # file = sys.argv[2]
-    bin_file = sys.argv[1]
-    main(bin_file, sys.argv[2])
->>>>>>> 5a763ea7573f6dfcf2fe35f9d038b708e9a193b3
+    # bin_file = sys.argv[1]
+    # main(bin_file, sys.argv[2])
+
