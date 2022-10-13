@@ -30,7 +30,7 @@ def extract_sample_name(sample_name, p='_S[0-9]+'):
     if pattern.search(sample_name):
         return pattern.split(sample_name)[0]
     else:
-        print(f'{sample_name} is not valid! Keep as origin')
+        # print(f'{sample_name} is not valid! Keep as origin')
         return sample_name
 
 
@@ -160,7 +160,17 @@ def genotype_star_allele(sample_data, gene_data, tables, sample, gene):
     is_val_marker = False
     is_val_genotype = False
     is_called = False
-    genotype = 'error'
+    genotype = 'not detected'
+
+    # print(gene_data)
+    # print(is_valid_genotype(gene_data))
+    # print(is_valid_marker(gene_data, tables, gene))
+
+    # pattern = generate_all_pattern(
+    #             get_sample_marker_by_gene(tables=tables,
+    #                                       sample_data=sample_data, gene=gene)['Genotype'])
+    # print(pattern)
+
 
     if is_valid_genotype(gene_data):
         is_val_genotype = True
@@ -174,6 +184,7 @@ def genotype_star_allele(sample_data, gene_data, tables, sample, gene):
                        for target in marker_target['target']]
             genotype = '|'.join(marker_target.iloc[np.where(matched)].index.values.tolist())
 
+            print(pattern)
             if sum(matched) >= 1:
                 is_called = True
 
@@ -223,11 +234,12 @@ def genotype_calling(bin_sample, tables):
     return genotype_df
 
 
-def main(bin_text_file, definition_pickle='resource/tables.pdata', excel=False):
+def main(bin_text_file, definition_pickle='../resource/tables.pdata', excel=False):
     import os
-    result = 'results/genotype_calling'
-    if not (os.path.exists(result) and os.path.isdir(result)):
-        os.mkdir(result)
+    # result = 'results/genotype_calling'
+    # result = ''
+    # if not (os.path.exists(result) and os.path.isdir(result)):
+    #     os.mkdir(result)
 
     tables = pickle.load(open(definition_pickle, 'rb'))
     bin_sample = merge_bin_and_definition(bin_text_file, tables)
@@ -246,12 +258,13 @@ def main(bin_text_file, definition_pickle='resource/tables.pdata', excel=False):
 if __name__ == '__main__':
     import sys
 
-    input = 'raw_data/bin_text/2021-01-07.txt'
-    df = main(input, excel=True)
+    # input = 'raw_data/bin_text/2021-01-07.txt'
+    # df = main(input, excel=True)
     # df = main(bin_text_file=sys.argv[1], excel=True)
     # print(df)
 
-    input = 'raw_data/bin_text/PGx-NP_10SAMPLES_BIN_20201123.txt'
-    df = main(bin_text_file=input, excel=True)
+    input = '../raw_data/bin_text/PA180404A_CYP2D6_Example.txt'
+    df = main(bin_text_file=input, excel=False)
+    print(df)
     # df = main(bin_text_file=sys.argv[1], excel=True)
 
