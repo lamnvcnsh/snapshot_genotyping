@@ -687,7 +687,8 @@ def finding_peaks(intentisty, expected_size = 9, height=300, distance='auto', pr
             pro = peak_prominences(intentisty, peaks)[0]
             pro_sort = np.sort(pro)[::-1]
             m_pro = pro_sort[expected_size]
-            peaks, heights = find_peaks(intentisty, height=height, prominence=m_pro+0.001)
+            peaks, heights = find_peaks(intentisty,
+                                        height=height, prominence=m_pro+0.001)
 
             # print(pro)
         else:
