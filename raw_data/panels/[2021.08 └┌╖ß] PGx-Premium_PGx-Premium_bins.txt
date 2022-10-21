@@ -1,0 +1,218 @@
+Version	GM v 4.1
+Chemistry Kit	PGx-Premium
+BinSet Name	PGx-Premium
+Panel Name	P_SPM1
+Marker Name	CYP2D6_001
+ASR	27.0	33.0
+G	27.0	33.0	Blue
+A	27.0	33.0	Green
+Marker Name	CYP2D6_002
+ASR	32.0	38.5
+C	32.0	37.5	Yellow
+T	35.0	38.5	Red
+Marker Name	CYP2D6_003
+ASR	38.0	42.0
+T	38.0	41.5	Green
+A	38.8	42.0	Red
+Marker Name	CYP2D6_004
+ASR	41.5	46.0
+G	42.0	45.5	Blue
+C	41.5	46.0	Yellow
+Marker Name	CYP2D6_005
+ASR	45.5	50.5
+G	46.0	50.0	Blue
+A	45.5	50.5	Green
+Marker Name	CYP2D6_006
+ASR	50.5	54.0
+A	51.0	54.0	Green
+G	50.5	54.0	Yellow
+Marker Name	CYP2D6_007
+ASR	53.0	57.0
+G	53.0	57.0	Blue
+T	53.0	57.0	Red
+Marker Name	CYP2D6_008
+ASR	57.7	62.5
+C	57.7	61.0	Blue
+T	58.5	62.5	Green
+Marker Name	CYP2D6_009
+ASR	63.0	68.5
+G	63.5	68.0	Yellow
+A	63.0	68.5	Red
+Marker Name	CYP2D6_010
+ASR	69.0	73.0
+G	69.0	72.0	Yellow
+A	70.0	73.0	Red
+Marker Name	CYP2D6_011
+ASR	71.5	77.0
+G	71.5	76.0	Blue
+A	71.5	77.0	Green
+Panel Name	P_SPM2
+Marker Name	VKORC1_001
+ASR	22.0	32.0
+G	22.0	29.0	Yellow
+A	26.0	32.0	Red
+Marker Name	CYP4F2_001
+ASR	29.0	37.0
+G	29.0	35.0	Blue
+A	30.0	37.0	Green
+Marker Name	CYP2C19_001
+ASR	38.0	42.5
+C	38.0	42.0	Yellow
+T	39.0	42.5	Red
+Marker Name	CYP2C9_001
+ASR	41.0	47.0
+C	41.0	45.5	Blue
+A	43.0	47.0	Red
+Marker Name	CYP2C19_002
+ASR	46.5	52.5
+G	46.5	51.5	Blue
+A	46.5	52.5	Green
+Marker Name	CYP2C9_002
+ASR	50.0	55.0
+C	50.0	55.0	Yellow
+T	50.5	54.0	Red
+Marker Name	CYP2C9_003
+ASR	52.0	57.0
+G	52.0	56.0	Blue
+A	53.0	57.0	Green
+Marker Name	CYP2C19_003
+ASR	56.0	61.0
+G	56.0	60.0	Yellow
+A	57.0	61.0	Red
+Marker Name	CYP2C9_004
+ASR	59.017473062	65.017473062
+C	60.017473062	65.017473062	Blue
+T	59.017473062	65.017473062	Green
+Marker Name	CYP3A4_002
+ASR	62.0	68.0
+C	62.0	68.0	Yellow
+T	62.0	68.0	Red
+Marker Name	CYP3A4_001
+ASR	68.5	73.5
+C	68.5	72.0	Yellow
+T	69.0	73.5	Red
+Marker Name	CYP3A5_001
+ASR	74.0	79.0
+G	74.0	78.0	Blue
+A	75.0	79.0	Green
+Panel Name	P_SPM3
+Marker Name	C11orf65_001
+ASR	29.0	38.83
+C	29.0	36.0	Blue
+A	33.83	38.83	Red
+Marker Name	SLCO1B1_001
+ASR	37.0	42.5
+G	37.0	42.0	Yellow
+A	39.0	42.5	Red
+Marker Name	MMP3_001
+ASR	42.0	47.0
+T	42.0	47.0	Green
+G	42.5	47.0	Yellow
+Marker Name	SLCO1B1_002
+ASR	45.0	51.0
+C	47.1	49.1	Yellow
+T	45.0	51.0	Red
+Marker Name	ABCG2_001
+ASR	48.5	52.5
+T	48.5	51.8	Green
+G	49.6	52.5	Yellow
+Marker Name	MT-RNR1_001
+ASR	51.5	56.5
+G	51.5	56.5	Blue
+A	52.099999999999994	56.0	Green
+Marker Name	COQ2_001
+ASR	57.5	62.0
+C	57.5	61.0	Blue
+G	58.0	62.0	Yellow
+Marker Name	KCNJ11_001
+ASR	62.0	66.0
+C	62.0	65.5	Blue
+T	62.0	66.0	Green
+Marker Name	NEDD4L_001
+ASR	66.5	70.0
+G	66.5	69.5	Blue
+A	67.0	70.0	Green
+Marker Name	GNB3_001
+ASR	70.0	74.0
+C	70.0	73.0	Blue
+T	70.5	74.0	Green
+Panel Name	P_SPM4
+Marker Name	NUDT15_002
+ASR	28.0	35.0
+C	29.0	35.0	Blue
+A	28.0	34.5	Red
+Marker Name	NUDT15_003
+ASR	35.0	40.0
+C	35.5	40.0	Blue
+A	35.0	40.0	Red
+Marker Name	TPMT_002
+ASR	40.5	45.5
+A	41.0	45.5	Green
+T	40.5	45.5	Red
+Marker Name	TPMT_001
+ASR	45.0	49.5
+G	45.0	49.0	Blue
+A	46.5	49.5	Green
+Marker Name	G6PD_001
+ASR	49.0	53.0
+A	50.0	53.0	Green
+T	49.0	53.0	Red
+Marker Name	G6PD_002
+ASR	53.0	58.0
+C	53.0	57.0	Yellow
+T	53.2	58.0	Red
+Marker Name	NUDT15_001
+ASR	57.0	61.0
+C	57.0	60.400000000000006	Blue
+T	57.0	61.0	Green
+Marker Name	DPYD_002
+ASR	61.0	64.0
+G	61.0	64.0	Blue
+A	61.2	64.0	Green
+Marker Name	DPYD_001
+ASR	64.2	69.0
+A	64.2	68.0	Green
+T	64.2	69.0	Red
+Marker Name	CYP2D6_017
+ASR	69.0	74.0
+C	69.0	73.0	Yellow
+T	69.5	74.0	Red
+Marker Name	MDR1_002
+ASR	73.5	78.5
+G	73.5	78.0	Blue
+A	74.0	78.5	Green
+Marker Name	MDR1_001
+ASR	79.0	84.0
+A	79.0	84.0	Green
+C	79.0	84.0	Yellow
+T	79.0	84.0	Red
+Panel Name	P_SPM5
+Marker Name	HLA-A_001
+ASR	35.0	39.7
+G	35.0	39.7	Blue
+A	35.0	39.7	Green
+Marker Name	HLA-A_002
+ASR	40.0	44.0
+C	40.0	44.0	Blue
+T	40.0	44.0	Green
+Marker Name	HLA-A_003
+ASR	42.5	48.0
+G	42.5	48.0	Yellow
+A	42.5	46.5	Red
+Marker Name	HLA-A_004
+ASR	46.0	51.5
+C	46.0	51.0	Blue
+T	46.0	51.0	Green
+A	47.0	51.5	Red
+Marker Name	HLA-B_001
+ASR	52.5	56.0
+G	52.5	56.0	Blue
+C	52.5	56.0	Yellow
+Marker Name	HLA-B_002
+ASR	56.5	60.0
+G	56.5	60.0	Blue
+A	56.5	59.5	Green
+Marker Name	HLA-B_003
+ASR	59.0	65.0
+T	60.0	65.0	Green
+A	59.0	65.0	Red
