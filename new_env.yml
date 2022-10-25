@@ -1,0 +1,7 @@
+name: snapshot_genotyping
+channels:
+  - defaults
+dependencies:
+  - python=3.8.13
+  - ipykernel
+prefix: C:\Users\User\miniconda3\envs\snapshot_genotyping
