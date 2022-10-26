@@ -550,7 +550,7 @@ class Definition:
     def _update_marker_table(self):
         marker_table = self.tables['marker_table'].merge(self.gene_table, how ='left', on='gene_id')
 
-        def marker_label(gene, star, rsid, nt_change):
+        def _marker_label(gene, star, rsid, nt_change):
             if star.startswith('*'):
                 return f'{gene} {star}'
             elif rsid != '-':
@@ -558,12 +558,10 @@ class Definition:
             else:
                 return f'{gene} {nt_change}'
 
-        marker_table['label'] = marker_table.apply(lambda row: marker_label(row['gene'], row['star_allele'], row['rsid'], row['nt_change']), axis=1)
+        marker_table['marker_label'] = marker_table.apply(lambda row: _marker_label(row['gene'], row['star_allele'], row['rsid'], row['nt_change']), axis=1)
         
         return marker_table
     
-
-
 
     def extract_marker(self, gene=None):
         if gene:
@@ -739,23 +737,51 @@ def plot_raw_intensity(fsa,min_index, max_index, select_base, base_range=(20,80)
     plt.show()
 
 
-def generate_markers(peak_table):
+def generate_markers(peak_table, new_form=False):
 
-    maker_list = {}
-    for _,row in peak_table.iterrows():
-        m = Marker(row.gene, row.marker, row.marker_label, row.panel, row.is_forward, [])
-        
-        m.define_colors = {row.w_base:row.w_color, row.m_base:row.m_color}
+    marker_list = {}
+    
+    if new_form:
 
-        a1 = Allele(row.w_base, 'wildtype', row.is_forward, row.w_min, row.w_max, row.w_height)
-        # a1.set_color(row.is_forward)
-        a2 = Allele(row.m_base, 'mutant', row.is_forward, row.m_min, row.m_max, row.m_height)
-        # a2.set_color(row.is_forward)
-        m.add_allele(a1)
-        m.add_allele(a2)
-        maker_list[m.marker_name] = m
+        markers = peak_table['marker'].unique()
 
-    return maker_list
+        for marker in markers:
+            # print(marker)
+            data = peak_table[peak_table['marker'] == marker]
+
+            marker_data = data.iloc[0]
+
+            # print(marker_data.gene, marker_data.marker, marker_data.marker_label, marker_data.panel, marker_data.is_forward)
+
+            m = Marker(marker_data.gene, marker_data.marker, 
+                        marker_data.marker_label, marker_data.panel, marker_data.is_forward, [])
+            
+            for _,row in data.iterrows():
+                a = Allele(row.base, row.basetype, row.is_forward, row.min_bin, row.max_bin, row.min_height)
+                a.defined_color = row.color
+                # print(row.base, row.basetype, row.is_forward, row.min_bin, row.max_bin, row.min_height)
+                m.add_allele(a)
+
+            # print(m.marker_name)
+            
+            marker_list[m.marker_name] = m
+
+    else:
+
+        for _,row in peak_table.iterrows():
+            m = Marker(row.gene, row.marker, row.marker_label, row.panel, row.is_forward, [])
+            
+            m.define_colors = {row.w_base:row.w_color, row.m_base:row.m_color}
+
+            a1 = Allele(row.w_base, 'wildtype', row.is_forward, row.w_min, row.w_max, row.w_height)
+            # a1.set_color(row.is_forward)
+            a2 = Allele(row.m_base, 'mutant', row.is_forward, row.m_min, row.m_max, row.m_height)
+            # a2.set_color(row.is_forward)
+            m.add_allele(a1)
+            m.add_allele(a2)
+            marker_list[m.marker_name] = m
+
+    return marker_list
 
 
 def finding_peak_by_markers(markers:dict, fsa:FSA, panel:str, select_base:list, index_range:tuple):
