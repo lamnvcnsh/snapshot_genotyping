@@ -535,7 +535,7 @@ class Definition:
         self.gene_table = self.tables['gene_table']
         # self.marker_table = self.tables['marker_table']
         self.genotype_marker_table = self.tables['genotype_marker_table']
-        self.marker_table = self._add_gene_to_marker_table()
+        self.marker_table = self._update_marker_table()
     
 
     def load_definition_table(self, table):
@@ -547,8 +547,22 @@ class Definition:
         return self.gene_table[self.gene_table['gene'] == gene]['gene_id']
 
 
-    def _add_gene_to_marker_table(self):
-        return self.tables['marker_table'].merge(self.gene_table, how ='left', on='gene_id')
+    def _update_marker_table(self):
+        marker_table = self.tables['marker_table'].merge(self.gene_table, how ='left', on='gene_id')
+
+        def marker_label(gene, star, rsid, nt_change):
+            if star.startswith('*'):
+                return f'{gene} {star}'
+            elif rsid != '-':
+                return f'{gene} {rsid}'
+            else:
+                return f'{gene} {nt_change}'
+
+        marker_table['label'] = marker_table.apply(lambda row: marker_label(row['gene'], row['star_allele'], row['rsid'], row['nt_change']), axis=1)
+        
+        return marker_table
+    
+
 
 
     def extract_marker(self, gene=None):
