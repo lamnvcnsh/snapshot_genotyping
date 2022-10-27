@@ -260,7 +260,10 @@ class Marker:
         """Update allele to the list of allele in this marker.
             It also update the direction of the marker to this allele.
         """
-        allele.is_forward = self.is_forward
+
+        if not hasattr(allele, 'is_forward'):
+            allele.is_forward = self.is_forward
+        
         self.alleles.append(allele)
     
     @property
@@ -336,12 +339,13 @@ class GenotypeResult:
                 tmp['direction'] = 'Forward' if marker.is_forward else 'Reverse'
                 tmp['genotype'] = marker.genotype
                 tmp['phenotype'] = marker.phenotype
+                tmp['data_chanel'] = allele.data_chanel
                 
                 clean_data = pd.concat([clean_data, tmp])         
         
         self.clean_data = clean_data.reset_index(drop=True)
         self.sample_list = self.clean_data['sample'].unique().tolist()
-        self.process_star_5()
+        # self.process_star_5()
 
     def process_star_5(self):
         
@@ -489,7 +493,7 @@ class GenotypeResult:
         else:
             cols = ['sample', 'gene', 'marker', 'label', 'panel', 'direction',
                     'base', 'basetype',	'min_bin', 'max_bin', 'min_height', 
-                    'is_forward', 'is_detected', 'peak', 'size', 'height',
+                    'is_forward', 'data_chanel','is_detected', 'peak', 'size', 'height',
                     'status', 'message', 'color']
 
         
@@ -517,12 +521,12 @@ class GenotypeResult:
         
         allele_data = self.allele_table(sample_name)
 
-        figs = {}
+        qc_figs = {}
         for panel in allele_data.panel.unique():
-            fig = plot_qc(allele_data[allele_data.panel == panel], title = f'{sample_name}-{panel}', showfig=showfig)
-            figs[panel] = fig
+            qc_fig = plot_qc(allele_data[allele_data.panel == panel], title = f'{sample_name}-{panel}', showfig=showfig)
+            qc_figs[panel] = qc_fig
 
-        return figs
+        return qc_figs
         
 
 class Definition:
@@ -722,8 +726,8 @@ def finding_peaks(intentisty, expected_size = 9, height=300, distance='auto', pr
 
 
 
-def plot_raw_intensity(fsa,min_index, max_index, select_base, base_range=(20,80)):
-    fig, ax = plt.subplots(1,1, figsize =(12,3), dpi = 200)
+def plot_raw_intensity(fsa, min_index, max_index, select_base, base_range=(20,80)):
+    _, ax = plt.subplots(1,1, figsize =(12,3), dpi = 200)
     ax.set_xlim(*base_range)
     for base in data_chanel_map:
         chanel = data_chanel_map.get(base)
@@ -750,6 +754,7 @@ def generate_markers(peak_table, new_form=False):
             data = peak_table[peak_table['marker'] == marker]
 
             marker_data = data.iloc[0]
+            # print(data)
 
             # print(marker_data.gene, marker_data.marker, marker_data.marker_label, marker_data.panel, marker_data.is_forward)
 
@@ -1053,16 +1058,15 @@ def plot_qc(data, xlim =(20,80),
                     fontsize = 11,
                     bbox=props)
 
-    plt.tight_layout()
-
     if showfig:
+        plt.tight_layout()
         plt.show()
 
     return fig     
 
 
 
-def call_from_fsa(fsa_files:list, target_markers:dict, reference:list, val_plot=True, intensity_plot = True):
+def call_from_fsa(fsa_files:list, target_markers:dict, reference:list, val_plot=True):
     # load reference size
     ref = Reference(reference)
 
