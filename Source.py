@@ -1226,3 +1226,113 @@ def plot_intensity(genotype_data, support_data, base_range=(10,130)):
 
         figs.append(fig)
     return figs
+
+
+class BinFile:
+    def __init__(self, file) -> None:
+        self.data = self.read_file(file)
+        self.process_data = self.parser()
+
+    def read_file(self, file):
+        with open(file, 'r') as f:
+            return [line.strip('\n') for line in f.readlines()]
+
+    def parser(self):
+        lines = []
+        for line in self.data:
+            # print(line)
+            if 'Version' in line:
+                version = line.split('\t')[1]
+            elif 'Chemistry' in line:
+                kit_name = line.split('\t')[1]
+            elif 'Panel Name' in line:
+                panel_name = line.split('\t')[1]
+            elif 'Marker Name' in line:
+                marker_name = line.split('\t')[1]
+            elif 'BinSet' in line:
+                continue
+            else:
+                # print(panel_name)
+                line_base = line.split('\t')
+                line_base.insert(0, marker_name)
+                line_base.insert(0, panel_name)
+                line_base.insert(0, kit_name)
+                line_base.insert(0, version)
+                lines.append(line_base)
+
+        
+        df = pd.DataFrame(lines, columns=['version', 'package', 'defined_panel', 'marker', 'base', 'min_bin', 'max_bin', 'color'])
+        df = df[pd.notnull(df.color)]
+        df['min_bin'] = round(df['min_bin'].astype('float'),2)
+        df['max_bin'] = round(df['max_bin'].astype('float'),2)
+        df['color'] = df['color'].apply(lambda x: x.lower())
+        
+        # conver yellow to black
+        df['color'] = df['color'].apply(lambda x: 'black' if x  == 'yellow' else x)
+        
+        # update direction
+        df['direction'] = df.apply(lambda row: self.update_direction(row['base'], row['color']), axis=1)
+
+        # update is_forward
+        df['is_forward'] = df['direction'].apply(lambda x: 1 if x == 'Forward' else 0)
+
+        # update label
+        df = df.merge(definition.marker_table[['marker', 'marker_label', 'gene']], how='left')
+
+        # update panel
+        df['panel'] = df['defined_panel'].apply(lambda x: f'S{x[-1]}')
+
+        # update basetype
+
+        def _base_type(marker, base):
+            marker_data = definition.marker_table[definition.marker_table['marker'] ==  marker]
+            wildtype = marker_data['wildtype'].to_list()[0]
+
+            return 'wildtype' if base == wildtype else 'mutant'
+        df['basetype'] = df.apply(lambda row: _base_type(row['marker'], row['base']), axis=1)
+                
+
+        # intiate min intensity
+        df['min_height'] = 1000
+
+        # process duplicate
+        # get max range file of bin setting if base duplicated
+        # M1 20  25
+        # M1 21  26
+        # --> M1 20 26 
+
+        tmp = df.groupby(['version', 'panel', 'marker', 'base', 'color'], as_index=False).agg(bin_min=('min_bin', 'min'), bin_max=('max_bin', 'max'))
+
+        df = df.merge(tmp)
+
+        df.drop(columns=['min_bin', 'max_bin'], inplace=True)
+        df.rename(columns={'bin_min':'min_bin', 'bin_max':'max_bin'}, inplace=True)
+
+        # commennt the above code if we want to get the max bin range instead
+
+        df['binrange'] = df.min_bin - df.max_bin
+
+        # get max bin range
+        df = df.sort_values('binrange', ascending=False).groupby(['version', 'panel', 'marker', 'base', 'color'], as_index=False).first()
+
+        df.sort_values(['panel', 'gene', 'marker', 'basetype', 'min_bin'], ascending=[True, True, True, False, True], inplace=True)
+       
+        # reorder colums
+        df = df[['package', 'version', 'defined_panel', 'panel', 'gene', 'marker',  'marker_label', 'is_forward',  'direction', 
+                'base', 'basetype', 'color',  'min_height', 'min_bin', 'max_bin']]
+
+
+        # check status marker
+
+        markers = df[['panel','marker', 'direction']].drop_duplicates()
+        count = markers.groupby('marker').size()
+
+        if any(count[count > 1]):
+            error_markers = "; ".join(count[count > 1].index)
+            raise ValueError(f'Marker(s) info not consistent [{error_markers}]')
+        
+        else:
+            return df
+    
+    def update_direction(self, base, color):
+        return 'Forward' if forward_color.get(base) == color else 'Reverse'
